@@ -1,10 +1,12 @@
 # Site Info
-title:              "The Plain"
-description:        "The Plain is a minimalist Jekyll theme, that's it. Can't say anymore..."
+title:              "Meta-notes"
+description:        "Personal Blog and Technial Knowledge Warehouse"
 
 # Google APIs
-google_verify:      epFgX0s_0RM3CdjwFcsewfXzPov2g8s9ZBOLyaIUH-o # Your Google Verification - set to 'false' to disable
-google_analytics:   UA-XXXXXXX-X # Your Google Analytics code - set to 'false' to disable
+google_verify:      0RavclAqC5DcNunhPaS5gniBRyjhoDMqa8klD3seW_I # Your Google Verification - set to 'false' to disable
+# https://support.google.com/webmasters/answer/35179?hl=en&visit_id=1-636605658266318966-3745163826&rd=1
+# GA 사용을 위해 페이지 주인 인증을 해야하는데, html 태그 삽입 방식으로 인증.
+google_analytics:   UA-118262874-1 # Your Google Analytics code - set to 'false' to disable
 
 # Author Info
 author_name:        "Heiswayi Nrird"
