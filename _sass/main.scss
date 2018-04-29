@@ -1,9 +1,13 @@
+@font-face {
+	  font-family: "D2Coding";
+		  src: url( '../assets/D2Coding.ttf') format('truetype');
+}
 body {
   font-size: 14px;
   line-height: 20px;
   font-weight: normal;
   font-style: normal;
-  font-family: consolas, monaco, courier, "courier new", fixed-width;
+  font-family: "D2Coding", consolas, monaco, courier, "courier new", fixed-width;
   color: #333333;
   padding: 20px;
   margin: 0;
@@ -142,7 +146,7 @@ time {
 }
 code,
 pre {
-  font-family: Consolas, Courier, monospace;
+  font-family: "D2Coding",Consolas, Courier, monospace;
 }
 code {
   color: #f14e32;
