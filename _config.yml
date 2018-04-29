@@ -33,9 +33,6 @@ include:            [ "robots.txt" ]
 exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
 plugins:
   - jekyll-sitemap
-  - jekyll-remote-theme
-
-remote_theme: heiswayi/the-plain
 
 
 defaults:
