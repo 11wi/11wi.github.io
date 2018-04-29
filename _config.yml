@@ -9,7 +9,7 @@ google_analytics:   UA-XXXXXXX-X # Your Google Analytics code - set to 'false' t
 # Author Info
 author_name:        "Heiswayi Nrird"
 author_email:       hnrird@gmail.com
-author_gravatar:    2b38b1b0e7e08b69379bd61582adf0c8 # Gravatar md5 hash (of email) here for logo - set to 'false' to disable
+author_gravatar:    cfb2bd9d258d7ae2205873c2d8a93e67 # Gravatar md5 hash (of email) here for logo - set to 'false' to disable
 twitter_username:   HeiswayiNrird # set to 'false' to disable
 github_username:    heiswayi # set to 'false' to disable
 
@@ -17,7 +17,7 @@ github_username:    heiswayi # set to 'false' to disable
 url:                https://heiswayi.nrird.com # main url
 baseurl:            /the-plain # for gh-pages
 permalink:          /notes/:title # Post permalink
-timezone:           Asia/Kuala_Lumpur # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:           Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 mathjax:            true  # enables support for mathjax - set to 'false' to disable
 
 # Site Build
@@ -33,7 +33,9 @@ include:            [ "robots.txt" ]
 exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
 plugins:
   - jekyll-sitemap
+  - jekyll-remote-theme
 
+remote_theme: heiswayi/the-plain
 
 
 defaults:
