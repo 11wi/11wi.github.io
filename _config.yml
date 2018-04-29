@@ -10,7 +10,7 @@ google_analytics:   UA-118262874-1 # Your Google Analytics code - set to 'false'
 
 # Author Info
 author_name:        "최원일 Choi Won-il"
-author_email:       eywanna@gmail.com
+author_email:       be.data.analyst.11@gmail.com
 author_gravatar:    0c6667c572115bb8aadd3dc0821f5f51 # Gravatar md5 hash (of email) here for logo - set to 'false' to disable
 twitter_username:   false # set to 'false' to disable
 github_username:    11wi # set to 'false' to disable
