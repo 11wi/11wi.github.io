@@ -12,6 +12,13 @@ title: About
     	<img src="../assets/email.png" alt="{% if include.alt %}{{ include.alt }}{% else %}Image{% endif %}">
     </a>
 
+    <a href="{{ link | prepend: site.author_email }}">
+        <img src="../assets/email.png" alt="{% if include.alt %}{{ include.alt }}{% else %}Image{% endif %}">
+    </a>
+
+    <a href="{{ link | prepend: site.github_username }}">
+        <img src="../assets/github.png" alt="{% if include.alt %}{{ include.alt }}{% else %}Image{% endif %}">
+    </a>
     <!-- Logo and Link insert -->
 
 
