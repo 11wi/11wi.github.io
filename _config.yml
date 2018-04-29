@@ -17,8 +17,8 @@ github_username:    11wi # set to 'false' to disable
 
 # Site Settings
 #url:                https://11wi.github.io # main url
-baseurl:            "" # for gh-pages
-permalink:          /notes/:title # Post permalink
+baseurl:            /home # for gh-pages
+permalink:          /posts/:title # Post permalink
 timezone:           Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 mathjax:            true  # enables support for mathjax - set to 'false' to disable
 
