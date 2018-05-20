@@ -4,8 +4,11 @@ updated: 2018-05-20
 
 # 파이썬 쓰임새가 점차 넓어지다.
 실전 프로젝트에서 사용하면서 배워나가고 있는 만큼 깊이는 부족하지만 무엇을 하던 쉽게 해낼 수 있다는 것만큼은 확연히 느꼈다.  
+
 최근 데이터분석용 데이터마트를 구축하며 기존 oracle 데이터허브에서 분석서버의 mariaDB로 옮기는 일이 있었다. 최근 파이썬을 많이 쓰다보니 자연히 파이썬으로 짜게 됐는데 너무 간단히 소스를 짤 수 있어서 당황스러웠다...
-  docplex 라이브러리에서도 pandas 덕을 많이 봤는데 이번에도 역시 pandas가 큰 일을 했다. 먼저 oracle에 붙어줄 `cx_oracle`과 mysql용 `sqlalchemy`가 필요하다. sqlalchemy는 mongodb용 `mongoose`와 유사한 느낌을 받았는데 클래스 형태로 데이터를 조작할 수 있는 기능이 있지만 다소 번거로워 db connect 기능만 사용했다.
+
+  docplex 라이브러리에서도 pandas 덕을 많이 봤는데 이번에도 역시 pandas가 큰 일을 했다.
+  먼저 oracle에 붙어줄 `cx_oracle`과 mysql용 `sqlalchemy`가 필요하다. sqlalchemy는 mongodb용 `mongoose`와 유사하게 클래스 형태로 데이터를 조작할 수 있는 기능이 있지만 다소 번거로워 db connect 기능만 사용했다.
 ```python
 engine = create_engine("mysql+pymysql://~~~~", encoding='utf-8')
 connection = engine.connect()
