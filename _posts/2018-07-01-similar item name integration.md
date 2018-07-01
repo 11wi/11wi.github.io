@@ -11,7 +11,7 @@
 
 유사도의 기준은 Jaro-winkler 스코어를 사용했다. 상품 텍스트는 보통 이런 패턴이다.
 `[브랜드] (상품 특징) (본 상품) (추가 구성)`
-![상품명](https://github.com/11wi/11wi.github.io/blob/master/assets/gsshop추천.PGN)
+![상품명](https://github.com/11wi/11wi.github.io/blob/master/assets/gsshop-sangpum3.PGN)
 Jaro-winkler의 특징은 앞의 글자가 비슷하면 뒤쪽이 달라도 점수가 높은 경향이 있다. (그래서 검색엔진에서 첫 글자를 틀리면 오타 보정이 잘 안된다) 이 특성을 활용하기 위해 상품 텍스트에서 브랜드를 제거하여 `(상품 특징) (본 상품) (추가 구성)` 상품의 본질이 유사한 것끼리 묶이도록 유도했다.
 
 # text grouping by Jaro-winkler score
