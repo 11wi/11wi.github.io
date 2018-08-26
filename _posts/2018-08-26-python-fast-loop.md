@@ -43,13 +43,15 @@ map(function, args)
 
 - pickle이 가능한 함수/객체만 적용 가능하다.
 
-```import pickle
+```
+import pickle
 pickle.dumps(object or function)
 ```
-위 소스로 pickle 가능 여부를 확인할 수 있다. 에러가 난다면, multiprocess는 어렵다.
-docplex 객체는 pickle이 불가능해 프로젝트에서 제외했다.
+
+위 소스로 pickle 가능 여부를 확인할 수 있다. 에러가 난다면, multiprocess는 어렵다. docplex 객체는 pickle이 불가능해 프로젝트에서 제외했다.
 
 - 병렬 처리할 함수는 nested class나 function의 하위 레벨에 놓지 말고 따로 분리하여 작성한다.
+
 ```
 # class 내부에서 구현할 경우
 import multiprocess
