@@ -53,7 +53,7 @@ pickle.dumps(object or function)
 - 병렬 처리할 함수는 nested class나 function의 하위 레벨에 놓지 말고 따로 분리하여 작성한다.
 
 ```
-# class 내부에서 구현할 경우
+<class 내부에서 구현할 경우>
 import multiprocess
 
 class A():
