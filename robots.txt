@@ -2,6 +2,7 @@
 layout: null
 ---
 
-sitemap: {{ site.baseurl | replace: 'https', 'http' | append: '/sitemap.xml' }}
-user-agent: *
-disallow: /
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.baseurl | replace: 'https', 'http' | append: '/sitemap.xml' }}
