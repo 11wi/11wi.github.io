@@ -65,12 +65,22 @@ def my_custom( preds, dtrain ):
 
 
 - early_stop
-xgboost의 과적합을 피하기 위해 eval_set(train/test error)를 감지한다. 여기서 나온 값이 `num_boost_round`가 되고 `XGBRegressor`라면 `n_estimator`가 된다. 여기서도 cumstom loss를 쓴다면
+eval_set(train/validation error)으로 early stop을 수행한다. 여기서 나온 값이 `num_boost_round`가 되고 `XGBRegressor`라면 `n_estimator`가 된다. validation error는 `eval_metric`이란 argument로 지정할 수 있는데, 만약 MAPE와 같은 cumstom error function을 원한다면 `f_eval` argument로 다음과 같은 형태 함수를 지정한다.
 ```
 def my_custom(preds, dtrain):
     labels = dtrain.get_label()    
     return 'error', mean_absolute_error(labels, preds)
 ```
-이런 형식이 필요하다.
+
 
 # gridsearch
+파라미터 튜닝을 위해 꽤 많이 돌려봤지만, 생각보다 randomized search의 성능과 속도가 좋은 편은 아니었다.
+오히려 잘 짜놓은 gridsearch가 적당한 값을 빠르게 찾아주었다. 아래 사용했던 소스를 올렸으며, 소스의 원안은 [포스팅을 참조](https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/)
+```
+다음엔 꼭 잊지 말고 채우자.
+
+```
+
+# dart
+
+간단히 비교 모델로 테스트해봤는데 딥러닝에서 쓰는 drop out이 가미된 xgboost라고 보면 될 것 같다. 결과만 따지면 예측력이 떨어졌는데, 그 이유는 내가 사용한 데이터가 row 개수가 적은 반면 동일한 X input값에 걸린 y 값의 분산이 상당히 크므로 학습이 까다로운 편이다. 그래서 전체적인 패턴을 캐치해서 애매모호한 예측을 하는 전략보다는 소수의 event를 정확히 맞추는 전략이 전체적인 MSE가 낮다. 그런 까닭에 genealized model에 가까운 dart는 오히려 성능이 떨어지고 XGBRegressor의 n_estimator를 올려 overfitting에 가까울수록 성능이 잘 나왔다고 생각한다.
