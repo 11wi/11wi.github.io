@@ -74,13 +74,108 @@ def my_custom(preds, dtrain):
 
 
 # gridsearch
-파라미터 튜닝을 위해 꽤 많이 돌려봤지만, 생각보다 randomized search의 성능과 속도가 좋은 편은 아니었다.
-오히려 잘 짜놓은 gridsearch가 적당한 값을 빠르게 찾아주었다. 아래 사용했던 소스를 올렸으며, 소스의 원안은 [포스팅을 참조](https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/)
-```
-다음엔 꼭 잊지 말고 채우자.
+`sklearn`을 사용하여 여러번 파라미터 튜닝을 했는데, 잘 짜인 `gridsearch`는 적당한 값을 빠르게 찾아준다는 점에서 `randomized search`보다 낫다.
+아래 사용했던 소스를 올렸으며, 소스의 원안은 [포스팅을 참조](https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/)
+
+```py
+
+def custom_loss(pred, dtrain):
+    true = dtrain.get_label()
+    grad = ...
+    hess = ...
+    return grad, hess
+
+custom_eval = make_scorer(..., greater_is_better=False)
+
+# initialize parameter
+par = {'colsample_bytree': 0.8, 'gamma': 0,
+       'learning_rate': 0.1, 'max_depth': 5,
+       'min_child_weight': 1, 'n_estimators': 1050,
+       'silent': True, 'subsample': 0.8, 'tree_method': 'hist',
+       'nthread': 5, 'n_jobs': 5,
+       }
+	   
+# step1: temporary num boost
+early_stop = xgboost.cv(par, dtrain, 5000, nfold=5, early_stopping_rounds=50, feval=eval_rwmse, obj=custom_loss)
+num_boost = early_stop.index.max()
+par['n_estimators'] = num_boost
+
+# step2: max_depth/min_child_weight
+param_test1 = {
+    'max_depth': range(5, 9, 1),
+    'min_child_weight': range(1, 4, 1)
+}
+
+grid_search_tree = GridSearchCV(estimator=xgboost.XGBRegressor(**par, objective=obj_rwmse_2), param_grid=param_test1,
+                                scoring=custom_eval,
+                                iid=False, cv=4, return_train_score=False)
+grid_search_tree.fit(x_train.drop('예상취급액', axis=1), x_train.예상취급액)
+print(pd.DataFrame.from_dict(grid_search_tree.cv_results_))
+param_update = grid_search_tree.best_params_
+
+# step3: gamma
+for x in param_update:
+    par[x] = param_update[x]
+param_test3 = {
+    'gamma': [i / 10.0 for i in range(0, 5)]
+}
+grid_search_gamma = GridSearchCV(estimator=xgboost.XGBRegressor(**par, objective=obj_rwmse_2), param_grid=param_test3,
+                                 scoring=custom_eval,
+                                 iid=False, cv=4, return_train_score=False)
+grid_search_gamma.fit(x_train.drop('예상취급액', axis=1), x_train.예상취급액)
+print(pd.DataFrame.from_dict(grid_search_gamma.cv_results_))
+param_update = grid_search_gamma.best_params_
+
+# step4: update num boosting
+for x in param_update:
+    par[x] = param_update[x]
+early_stop = xgboost.cv(par, dtrain, 5000, nfold=5, early_stopping_rounds=50, feval=eval_rwmse, obj=custom_loss)
+num_boost = early_stop.index.max()
+
+# step5: tune randomness
+par['n_estimators'] = num_boost
+param_test4 = {
+    'subsample': [i / 10.0 for i in range(7, 10)],
+    'colsample_bytree': [i / 10.0 for i in range(7, 10)]
+}
+grid_search_random = GridSearchCV(estimator=xgboost.XGBRegressor(**par, objective=obj_rwmse_2), param_grid=param_test4,
+                                  scoring=custom_eval,
+                                  iid=False, cv=4, return_train_score=False)
+grid_search_random.fit(x_train.drop('예상취급액', axis=1), x_train.예상취급액)
+print(pd.DataFrame.from_dict(grid_search_random.cv_results_))
+param_update = grid_search_random.best_params_
+
+# step6: tune regularization
+for x in param_update:
+    par[x] = param_update[x]
+param_test7 = {
+    'reg_alpha': [4.2, 4.3],
+    'reg_lambda': [4.75, 5, 7, 9]
+}
+grid_search_regular = GridSearchCV(estimator=xgboost.XGBRegressor(**par, objective=obj_rwmse_2), param_grid=param_test7,
+                                   scoring=custom_eval,
+                                   iid=False, cv=4, return_train_score=False)
+grid_search_regular.fit(x_train.drop('예상취급액', axis=1), x_train.예상취급액)
+print(pd.DataFrame.from_dict(grid_search_regular.cv_results_))
+param_update = grid_search_regular.best_params_
+
+# step7: reduce learning rate (or can use cv) 
+for x in param_update:
+    par[x] = param_update[x]
+par['learning_rate'] = 0.015
+final_model = xgboost.cv(par, dtrain, 10000, nfold=5, early_stopping_rounds=50, feval=eval_rwmse, obj=custom_loss)
+par['n_estimators'] = final_model.index.max()
+final_par = par
+print('final params')
+print(final_par)
 
 ```
+
 
 # dart
 
-간단히 비교 모델로 테스트해봤는데 딥러닝에서 쓰는 drop out이 가미된 xgboost라고 보면 될 것 같다. 결과만 따지면 예측력이 떨어졌는데, 그 이유는 내가 사용한 데이터가 row 개수가 적은 반면 동일한 X input값에 걸린 y 값의 분산이 상당히 크므로 학습이 까다로운 편이다. 그래서 전체적인 패턴을 캐치해서 애매모호한 예측을 하는 전략보다는 소수의 event를 정확히 맞추는 전략이 전체적인 MSE가 낮다. 그런 까닭에 genealized model에 가까운 dart는 오히려 성능이 떨어지고 XGBRegressor의 n_estimator를 올려 overfitting에 가까울수록 성능이 잘 나왔다고 생각한다.
+간단히 비교 모델로 테스트해봤는데 딥러닝에서 쓰는 drop out이 가미된 xgboost라고 보면 될 것 같다.  
+결과만 따지면 예측력이 떨어졌는데, 그 이유는 내가 사용한 데이터가 row 개수가 적은 반면 동일한 X input값에 걸린 y 값의 분산이 상당히 크므로 학습이 까다로운 편이다.  
+validation curve를 그려보면 boost를 아무리 많이 해도 overfitting로 발생하는 test error 상승이 없다. 왠만하면 많이 돌릴수록 cv error가 낮다.  
+분석 경험을 토대로 왜 그런 현상이 나왔는지 추측해보면, 1.대부분의 학습력은 초기 ~100 round에서 가져가고 2. 트리를 열어보면 ~3 depth에서 중요한 분류는 거진 일어나는 것 같다. 3. 나머지 자투리 학습을 수많은 weak learner가 매꿔주는데 그 weak learner가 어마어마하게 필요할 만큼 complex한 규칙이 있는 것으로 보인다. 4. tresh in, tresh out이라고. 사실 데이터 자체가 답이 안 나오는 셋이 아닐까.. 라는 생각도 크다.  
+drop out으로 트리를 지울 때 그게 만약 예측에서 중요한 트리였다면 당연히 성능에 안 좋을 거고, 그게 아닌 미미한 파트였다면 사실 지우나 마나할 것이라고 생각한다. 그래서 drop out이 특징인 dart는 오히려 성능이 떨어지고 XGBRegressor의 n_estimator를 올려 overfitting에 가까울수록 성능이 잘 나왔다고 생각한다.
