@@ -18,7 +18,8 @@ bayesian 이론에 대해 탄탄한 기초는 없지만 논문 저자가 올린 
 
 구현한 소스코드는  
 [bpmf.py](../assets/bpmf.py) - `sklearn estimator`로 구현  
-[matrix_util.py](../assets/matrix_util.py) - `bpmf.py`에서 사용하는 util 함수
+[matrix_util.py](../assets/matrix_util.py) - `bpmf.py`에서 사용하는 util 함수  
+[test-data](../assets/moviedata.mat) - sample dataset
 
 ```python
 # train data
