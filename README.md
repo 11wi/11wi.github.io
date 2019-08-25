@@ -1,74 +1,200 @@
-# The Plain
+Jekyll Clean
+============
 
-_The Plain_ is a minimalist Jekyll theme, designed to focus on writing that really matters to you and your audience.
-Everything else is just a distraction.
-Nothing more other than useful and understandable information sharing.
-This theme is best suited for a personal blog type, but not limited to that.
+* Get it from [github](https://github.com/scotte/jekyll-clean).
+* See the [live demo](https://scotte.github.io/jekyll-clean).
+* See it [in action on my own blog](https://scotte.org).
 
-P/S: This theme is originally inspired by [Leonard Lamprecht's _leo_ theme](https://github.com/leo/leo.github.io), thanks!
+A simple and clean Jekyll theme using [bootstrap](http://getbootstrap.com)
+(not to be confused with jekyll-bootstrap) that's easy to modify and very
+modular in component and element reuse.
 
-[**Live Demo**](http://heiswayi.github.io/the-plain/)
+It uses Disqus for comments and includes Google Analytics support. Both of
+these features are disabled by default and can be enabled via \_config.yml. You
+can also rip this code out of the templates if you like (footer.html and post.html).
+The beauty of Jekyll - keep things clean... Jekyll Clean!
 
-### Screenshot
+The theme works well on mobile phones, using a collapsable nav bar and hiding the
+sidebar. The links pane in the sidebar is available on mobile through the nav menu,
+and you can do the same thing for any other sections added to the sidebar.
 
-![The Plain Screenshot](http://i.imgur.com/8ZXhjfV.png)
+Don't forget to occassionally merge against my upstream repository so you can get
+the latest changes. Pull requests are encouraged and accepted!
 
-### Philosophy
+Installation
+============
 
-> Minimalism is a masterpiece of tranquility. -- Heiswayi Nrird
+If you don't have a blog already on github, start by cloning this repository.
+Best to do that directly on github and then clone that down to your computer.
 
-### How to use
+If you already do have a blog, You can certainly apply this theme to your existing
+blog in place, but then you won't be able to merge as the theme changes. If you
+re-apply your blog history on top of this theme's **gh-pages** branch, it's then
+easy to update to the latest version of the theme. You also don't want to have to
+deal with resolving old conflicts from your existing history, so you may wish to to
+push your existing master off to a new branch so you have the old history and start
+a new branch with this as the start, merging in your \_posts and other assets (after
+git rm'ing the current \_posts.
 
-#### on an unlimited jekyll host
+Not ideal, but you have to make a choice - either apply it manually or base your
+blog off this theme's branch. Either way it will work, and both have their own
+pros and cons.
 
-**NOTE** This does NOT work on github, see the next section.
+You can setup an upstream tracking repository like so:
 
-Put this in your *Gemfile*:
+```
+$ git remote add upstream git@github.com:scotte/jekyll-clean.git
+```
 
-	gem 'the-plain'
+And now when you wish to merge your own branch onto the latest version of the
+theme, simply do:
 
-and run `bundle install` to install the plugin.
+```
+$ git fetch upstream
+$ git merge upstream/gh-pages
+```
 
-Add this to your sites *_config.yml* file:
+Of course you will have to resolve conflicts for \_config.yml, \_includes/links-list.html,
+and \_posts, and so on, but in practice this is pretty simple.
 
-	theme: the-plain
+This is how I maintain my own blog which is based on this theme. The old history is
+sitting in an **old-master** branch that I can refer to when I need to.
 
-Then copy some of the settings from this repos *_config.yml* file to your own,
-and adjust them.
+Running Locally
+===============
 
-#### on github
+Here's the exact set of packages I need to install on Debian to run jekyll
+locally with this theme for testing.
 
-GitHub - for your user account pages or repository gh-pages -
-only supports a limited set of themes.
+```
+$ sudo aptitude install ruby ruby-dev rubygems nodejs
+$ sudo gem install jekyll jekyll-paginate
+```
 
-Therefore, you may not use the 'remote\_theme:' setting instead of 'theme:',
-which is supported by [a 3rd party plugin](https://github.com/benbalter/jekyll-remote-theme).
+And then it's just a simple matter of running jekyll locally:
 
-Put this in your *Gemfile*:
+```
+$ jekyll serve --baseurl=''
+```
 
-	gem 'jekyll-remote-theme'
+Now browse to http://127.0.0.1:4000
 
-and run `bundle install` to install the plugin.
+Using gh-pages
+==============
 
-Add the following to your site's *_config.yml* to activate the plugin
-and to select this theme:
+Running a jekyll site is a bit outside the scope of this doc, but
+sometimes it can be a bit confusing how to configure jekyll for
+project pages versus user pages, for example.
 
-	plugins:
-	  - jekyll-remote-theme
+To start with, read through
+[the documentation here](https://help.github.com/articles/user-organization-and-project-pages/).
+This will provide a good overview on how it all works. The git branch and
+baseurl (in _config.yml) will change depending on the sort of site deployed.
 
-	remote_theme: heiswayi/the-plain
+When you clone this repository, it's set up for project pages, so the
+deployed branch is "gh-pages" and baseurl is configured to 'jekyll-clean',
+because that's the name of this project.
 
-This will grab the theme directly from the github repo.
+If you plan to deploy this as user pages, the deployed branch is "master"
+and baseurl is configured to '' (i.e. empty).
 
-Now copy some of the settings from this repos *_config.yml* file to your own,
-and adjust them.
+Using Gitlab Pages
+==================
 
-### License
+A basic .gitlab-ci.yml is provided with this project.
 
-[MIT](LICENSE.md)
+Comment Systems
+===============
 
-### Credits
+Jekyll clean supports both [isso](https://posativ.org/isso) and
+[disqus](https://disqus.com) comment systems.
 
-Many thanks to this themes [contributors](https://github.com/heiswayi/the-plain/graphs/contributors)
-that help fixing bugs or enhancing source code.
+After enabling **comments**, either **isso** or **disquss** must
+be configured. Don't try configuring both!
 
+Isso Comments
+=============
+
+Isso requires running a local server, so is not suitable for hosting
+in github pages, for example. Isso is open source and keeps all your
+data local, unlike Disqus (who knows exactly what they are doing with
+your data).
+
+In _config.yml you'll need to set **isso** to the fully-qualified URL
+if your isso server (this is the value for **data-isso** passed to the
+isso JS). Make sure **comments** is true.
+
+Disqus Comments
+===============
+
+Getting Disqus to work can be a bit more work than it seems like it should be.
+Make sure your Disqus account is correctly configured with the right domain
+of your blog and you know your Disqus shortname.
+
+In _config.yml you'll need to set **disqus** to your Disqus shortname and
+make sure **comments** is true.
+
+Finally, in posts, make sure you have **comments: true** in the YAML front
+matter.
+
+More information on using Disqus with Jekyll is
+[documented here](https://help.disqus.com/customer/portal/articles/472138-jekyll-installation-instructions).
+
+Code Syntax Highlighting
+========================
+
+To use code syntax highlighting, use the following syntax:
+
+```
+```python
+import random
+
+# Roll the die
+roll = random.randint(1, 20)
+print('You rolled a %d.' % roll)
+``` #REMOVE
+```
+
+(Remove #REMOVE from the end of the last line). Which will look like this in
+the rendered jekyll output using the default css/syntax.css provided with this
+theme (which is the **colorful** theme from [https://github.com/iwootten/jekyll-syntax](https://github.com/iwootten/jekyll-syntax)):
+
+```python
+import random
+
+# Roll the die
+roll = random.randint(1, 20)
+print('You rolled a %d.' % roll)
+```
+
+NOTE: The example in this README.md will render differently than in the
+final jekyll output. See the [live demo](https://scotte.github.io/jekyll-clean)
+to see how it really looks.
+
+You can, of course, use any theme you wish, see the jekyll and pygments
+documentation for more details.
+
+License
+=======
+
+The content of this theme is distributed and licensed under a
+![License Badge](/images/cc_by_88x31.png)
+[Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+    This license lets others distribute, remix, tweak, and build upon your work,
+    even commercially, as long as they credit you for the original creation. This
+    is the most accommodating of licenses offered. Recommended for maximum
+    dissemination and use of licensed materials.
+
+In other words: you can do anything you want with this theme on any site, just please
+provide a link to [the original theme on github](https://github.com/scotte/jekyll-clean)
+so I get credit for the original design. Beyond that, have at it!
+
+This theme includes the following files which are the properties of their
+respective owners:
+
+* js/bootstrap.min.js - [bootstrap](http://getbootstrap.com)
+* css/bootstrap.min.css - [bootstrap](http://getbootstrap.com)
+* js/jquery.min.js - [jquery](https://jquery.com)
+* images/cc_by_88x31.png - [creative commons](https://creativecommons.org)
+* css/colorful.css - [iwootten/jekyll-syntax](https://github.com/iwootten/jekyll-syntax)

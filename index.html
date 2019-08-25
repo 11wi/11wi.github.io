@@ -2,30 +2,34 @@
 layout: default
 ---
 
-<section>
+{% for post in paginator.posts %}
+<div class="article">
+    <div class="well">
+        <h1><a href="{{ site.baseurl}}{{ post.url }}">{{ post.date | date: "%b %-d, %Y" }} - {{ post.title }}</a></h1>
+        {% if site.comments and post.comments %}
+            {% if site.disqus != '' %}
+            <p class="author"><a href="{{ site.baseurl }}{{ post.url }}/#disqus_thread" data-disqus-identifier="{{ post.url | slugify }}">Comments</a></p>
+            {% elsif site.isso != '' %}
+            <p class="author"><a href="{{ site.baseurl }}{{ post.url }}{{ site.isso_suffix }}#isso-thread">Comments</a></p>
+            {% endif %}
+        {% endif %}
+        <div class="content">
+            {{ post.content }}
+        </div>
+    </div>
+</div>
+{% endfor %}
 
-	{% for post in site.posts %}
-		{% unless post.next %}
-			<h3>{{ post.date | date: '%Y' }} &#172;</h3>
-		{% else %}
-			{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-			{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-			{% if year != nyear %}
-				<h3>{{ post.date | date: '%Y' }} &#172;</h3>
-			{% endif %}
-		{% endunless %}
-
-		<ul>
-			<li>
-				<div class="post-date">
-					<span>{{ post.date | date: "%b %d" }}</span>
-				</div>
-				<div class="title">
-					<a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a>
-				</div>
-			</li>
-		</ul>
-
-	{% endfor %}
-
-</section>
+<div class="pagination">
+  {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        <a class="btn btn-default" href="{{ site.baseurl}}/index.html" class="previous">Newer</a>
+      {% else %}
+        <a class="btn btn-default" href="{{ site.baseurl}}/page{{ paginator.previous_page }}" class="previous">Newer</a>
+      {% endif %}
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a class="btn btn-default" href="{{ site.baseurl}}/page{{ paginator.next_page }}" class="next">Older</a>
+  {% endif %}
+</div>

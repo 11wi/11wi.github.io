@@ -1,58 +1,52 @@
-# Site Info
-title:              "Less is more"
-description:        "Personal Blog and Technial Knowledge Warehouse"
+# Jekyll configuration
+name: Less is more
+description: Personal Blog and Technial Knowledge Warehouse
 
-# Google APIs
-google_verify:      0RavclAqC5DcNunhPaS5gniBRyjhoDMqa8klD3seW_I # Your Google Verification - set to 'false' to disable
-# https://support.google.com/webmasters/answer/35179?hl=en&visit_id=1-636605658266318966-3745163826&rd=1
-# GA 사용을 위해 페이지 주인 인증을 해야하는데, html 태그 삽입 방식으로 인증.
-google_analytics:   UA-118262874-1 # Your Google Analytics code - set to 'false' to disable
+
 
 # Author Info
 author_name:        "최원일 Choi Won-il"
 author_email:       be.data.analyst.11@gmail.com
 author_gravatar:    0c6667c572115bb8aadd3dc0821f5f51 # Gravatar md5 hash (of email) here for logo - set to 'false' to disable
-twitter_username:   false # set to 'false' to disable
-github_username:    11wi # set to 'false' to disable
-
-# Site Settings
-#url:                https://11wi.github.io # main url
-baseurl:            "" # for gh-pages
-permalink:          /posts/:title # Post permalink
-timezone:           Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-mathjax:            true  # enables support for mathjax - set to 'false' to disable
-
-# Site Build
-highlighter:        rouge
-markdown:           kramdown
-kramdown:
-    input:          GFM
-sass:
-    style:          :compressed
-
-# Other Params
-include:            [ "robots.txt" ]
-exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
-plugins:
-  - jekyll-sitemap
-  - jekyll-remote-theme
-
-remote_theme: heiswayi/the-plain
 
 
-defaults:
-  -
-    scope:
-      path:         ""
-    values:
-      layout:       "null"
-  -
-    scope:
-      type:         "pages"
-    values:
-      layout:       "page"
-  -
-    scope:
-      type:         "posts"
-    values:
-      layout:       "post"
+
+# url is currently only used only for the RSS feed in feed.xml
+url: https://11wi.github.io/
+
+# baseurl will often be '', but for a project page on gh-pages, it needs to
+# be the project name.
+# *** IMPORTANT: If your local "jekyll serve" throws errors change this to '' or
+#     run it like so: jekyll serve --baseurl=''
+baseurl: ''
+
+
+# These can be '' to hide the Github or Gitlab nav buttons
+github: ''
+gitlab: ''
+
+# Set this to your UA-# value, or '' to disable the block completely
+gaaccount: UA-118262874-1
+# google_verify:      0RavclAqC5DcNunhPaS5gniBRyjhoDMqa8klD3seW_I # Your Google Verification - set to 'false' to disable
+
+
+
+# The 'comments' setting enables comments. You'll need to select either
+# disqus or isso below to choose a comment system. Individual posts can
+# override 'comments' to disable on a post-by-post basis.
+comments: false
+
+# Set this to your public isso URL to enable comments via isso. Set to '' to disable isso.
+isso: ''
+
+# Set this to your disqus shortname to enable comments via disqus. Set to '' to disable disqus.
+disqus: ''
+
+permalink: /:year/:month/:title
+paginate: 3
+
+highlighter: rouge
+markdown: kramdown
+gems: ['jekyll-paginate']
+
+exclude: ['README.md', 'LICENSE']

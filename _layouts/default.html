@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="ko">
+{% include header.html %}
 
-	<head>
-		{% include head.html %}
-	</head>
+<div class="container container-left">
+    <div class="row">
+        <div class="col-md-3 hidden-xs">
+            {% include sidebar.html %}
+        </div>
+        <div class="col-md-9">
+            {{ content }}
+        </div>
+    </div>
+</div>
 
-	<body>
-
-		{% include header.html %}
-
-		<main>
-			{{ content | replace: '&#8617;', '&#8617;&#xfe0e;' }}
-		</main>
-
-		{% include footer.html %}
-
-	</body>
-
-</html>
+{% include footer.html %}
