@@ -26,7 +26,39 @@
 ## how-to
 
 웹 개발에는 익숙치 않다보니 template 바꾸는 방법도 검색했지만 아주 친절한 문서는 찾지 못했다. 
-그래서 초보도 따라할 수 있는 jekyll theme 변경법을 남겨본다.
+~~그래서 초보도 따라할 수 있는 jekyll theme 변경법을 남겨본다.~~
 
-일단 테마를 다운 받는다. 내가 고른 테마는 `gem install`로 설치하는 `gem based theme` 아니라서 파일을 수정해야한다.
-일단 가장 
+그냥 template 파일을 덮어쓰니까 일단 작동은 한다... 거기에 몇가지 customize하면 충분할 것 같다.
+
+1. [사이드바에 카테고리 구분 추가](#사이드바에-카테고리-구분-추가)
+1. [폰트 변경](#폰트-변경)
+1. [웹 최상단 icon 추가](#웹-최상단-icon-추가)
+
+
+내가 쓰는 [theme](https://github.com/scotte/jekyll-clean)은 sidebar가 이미 구현되어 있다. 
+살펴보면 그냥 `_includes/links-list.html` 을 보라는 뜻이다. 
+```html
+<div class="sidebar well">
+{% include links-list.html %}
+</div>
+```
+
+[이 분이 쓰신 글을](https://hoisharka.github.io/jekyll/2017/12/03/jekyll-category-001/) 참조하여 category를 화면에 뿌리는 것까지는 성공.
+```html
+-- _includes/links-list.html --
+<h1>Category</h1>
+<ul>
+
+{% for category in site.categories %}
+<li>
+    <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
+        <span class="name">{{ category | first }}</span> <span class="badge">{{ category | last | size }}</span>
+    </a>
+</li>
+{% endfor %}
+
+</ul>
+
+```
+
+![](images/blog-category-success.PNG)
