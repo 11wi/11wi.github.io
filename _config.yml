@@ -50,3 +50,6 @@ markdown: kramdown
 gems: ['jekyll-paginate']
 
 exclude: ['README.md', 'LICENSE']
+
+category_dir: category/
+# tag_dir: tag/

@@ -1,7 +1,11 @@
 <h1>Links</h1>
 <ul>
-  <li><a href="#">One</a></li>
-  <li><a href="#">Two</a></li>
-  <li><a href="#">Three</a></li>
-  <li><a href="#">Four</a></li>
+    {% for category in site.categories %}
+    <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
+                          <span class="name">
+                              {{ category | first }}
+                          </span>
+      <span class="badge">{{ category | last | size }}</span>
+    </a>
+    {% endfor %}
 </ul>

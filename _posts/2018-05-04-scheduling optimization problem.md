@@ -1,5 +1,6 @@
 ---
 updated: 2018-05-05
+category: data-science
 ---
 
 # 최적화 문제를 처음 접하다.
