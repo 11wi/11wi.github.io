@@ -8,7 +8,7 @@ description: Personal Blog and Technial Knowledge Warehouse
 author_name:        "최원일 Choi Won-il"
 author_email:       be.data.analyst.11@gmail.com
 author_gravatar:    0c6667c572115bb8aadd3dc0821f5f51 # Gravatar md5 hash (of email) here for logo - set to 'false' to disable
-
+timezone: Asia/Seoul
 
 
 # url is currently only used only for the RSS feed in feed.xml
@@ -44,21 +44,23 @@ disqus: ''
 
 permalink: /:year/:month/:title
 paginate: 3
-mathjax: true
 
 highlighter: rouge
 markdown: kramdown
+kramdown:
+  input:  GFM
+mathjax: true
+
+
 gems: ['jekyll-paginate']
 plugins: [jekyll-paginate]
-
 exclude: ['README.md', 'LICENSE']
 
 category_dir: category/
 # tag_dir: tag/
 
 defaults:
-  -
-    scope:
+  - scope:
       type:         "posts"
     values:
       layout:       "post"

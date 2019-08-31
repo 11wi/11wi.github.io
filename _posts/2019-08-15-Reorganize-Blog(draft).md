@@ -77,7 +77,7 @@ img {
 }
 ```
 
-수식을 표현해주는 mathjax 기능을 넣어야된다.
+[블로그 글](https://seongkyun.github.io/others/2019/01/03/MathJax/) 따라 손쉽게 수식을 표현해주는 mathjax 기능을 넣었다.
 
 
-code block의 이상한 coloring도 고쳐야하고.
+code block의 이상한 coloring도 고쳐야지..
