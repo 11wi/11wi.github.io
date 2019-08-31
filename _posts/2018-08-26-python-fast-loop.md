@@ -1,3 +1,9 @@
+---
+category: data-science
+---
+
+
+
 # Scheduling Optimization2
 4월부터 시작한 쇼핑호스트 스케줄링 최적화 알고리즘은 얼추 개발이 끝난 상태이나,
 IT개발팀이 바쁜 관계로 현업에서 사용할 사내 프로그램에 올리지 못하고 있다.

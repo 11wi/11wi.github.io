@@ -1,3 +1,9 @@
+---
+category: data-science
+---
+
+
+
 # python memory efficiency (manipulating big data)
 
 9월 말부터 지금까지 추천 관련 업무를 하느라 바쁘게 지내서 오랫만에 정리글을 쓴다. ~~(지난 글도 아직 정리가 더 필요한데...)~~

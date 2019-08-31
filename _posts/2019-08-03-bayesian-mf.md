@@ -1,3 +1,8 @@
+---
+category: data-science
+---
+
+
 # bayesian mf
 
 matrix factorization이 필요한 프로젝트가 있어서 공부하다보니 hyper parameter를 tuning하지 않아도 되는

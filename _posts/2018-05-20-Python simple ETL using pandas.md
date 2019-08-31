@@ -1,5 +1,5 @@
 ---
-updated: 2018-05-20
+category: data-science
 ---
 
 # 파이썬 쓰임새가 점차 넓어지다.

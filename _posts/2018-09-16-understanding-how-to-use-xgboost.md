@@ -1,3 +1,8 @@
+---
+category: data-science
+---
+
+
 # xgboost
 프로젝트에서 주로 사용했던 xgboost(v72) 알고리즘을 깊이 이해하고자 정리했다.
 - parameters
