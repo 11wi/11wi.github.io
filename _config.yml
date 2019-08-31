@@ -55,3 +55,10 @@ exclude: ['README.md', 'LICENSE']
 
 category_dir: category/
 # tag_dir: tag/
+
+defaults:
+  -
+    scope:
+      type:         "posts"
+    values:
+      layout:       "post"

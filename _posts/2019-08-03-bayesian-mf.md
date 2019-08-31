@@ -22,9 +22,9 @@ bayesian 이론에 대해 탄탄한 기초는 없지만 논문 저자가 올린 
 [논문구현github](https://github.com/LoryPack/BPMF)
 
 구현한 소스코드는  
-[bpmf.py](../images/bpmf.py) - `sklearn estimator`로 구현  
-[matrix_util.py](../images/matrix_util.py) - `bpmf.py`에서 사용하는 util 함수  
-[test-data](../images/moviedata.mat) - sample dataset
+[bpmf.py](/attachments/bpmf.py) - `sklearn estimator`로 구현  
+[matrix_util.py](/attachments/matrix_util.py) - `bpmf.py`에서 사용하는 util 함수  
+[test-data](/attachments/moviedata.mat) - sample dataset
 
 ```python
 # train data

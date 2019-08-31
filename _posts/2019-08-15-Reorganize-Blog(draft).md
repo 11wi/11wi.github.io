@@ -67,3 +67,17 @@ category: 일상
 ```
 
 ![](images/blog-category-success.PNG)
+
+
+
+이미지 크기가 post의 div 박스보다 더 크게 나오지 않도록 `theme.css`에 추가해주고
+```css
+img {
+  max-width: 100%;
+}
+```
+
+수식을 표현해주는 mathjax 기능을 넣어야된다.
+
+
+code block의 이상한 coloring도 고쳐야하고.
