@@ -1,8 +1,3 @@
----
-category: data-science
----
-
-
 회사 서버에서 돌리기 어려운 소스를 돌리고자
 개인노트북 LG그램에 virtualbox 사용하여 ubuntu를 오랫만에 설치.
 이전에 본 적이 없는 검은 화면만 뜨고 gnome 화면이 안 뜬다.

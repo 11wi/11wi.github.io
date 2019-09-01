@@ -61,6 +61,6 @@ category_dir: category/
 
 defaults:
   - scope:
-      type:         "posts"
+      type: "posts"
     values:
-      layout:       "post"
+      layout: "post"
