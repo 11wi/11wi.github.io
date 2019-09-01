@@ -208,7 +208,7 @@ code block의 coloring이 예쁘지도 않고 빨간 음영이 눈에 띈다.
 favicon 파일을 가져와 저장하고 `header.html`의 head 태그 내부에 한 줄만 추가하면 된다.
 
 ```html
-<link rel="icon" href="{{ "/images/favicon.png" | prepend: site.baseurl | prepend: site.url }}">
+<link rel="icon" type="image/png" href="/favicon.png">
 ```
 
 ---
