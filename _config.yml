@@ -27,7 +27,7 @@ gitlab: ''
 
 # Set this to your UA-# value, or '' to disable the block completely
 gaaccount: UA-118262874-1
-# google_verify:      0RavclAqC5DcNunhPaS5gniBRyjhoDMqa8klD3seW_I # Your Google Verification - set to 'false' to disable
+google_verify: 0RavclAqC5DcNunhPaS5gniBRyjhoDMqa8klD3seW_I # Your Google Verification - set to 'false' to disable
 
 
 
