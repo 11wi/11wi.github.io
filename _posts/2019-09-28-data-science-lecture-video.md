@@ -8,13 +8,13 @@ category: data-science
 일도 바쁘고 몸도 아프고 해서 반절도 못 들었던 걸 이제 완강하려고 한다.
 이렇게 글로 목표를 공언했으니 올해 안에는 마무리 해보려한다.
 
-# endogenity - 내생성
+# endogeneity - 내생성
 
 통계학 수업들으면서 계량경제학 수업도 들은 적이 있는데 굉장히 통계 수업하고 흡사했던 기억이 난다.
 ML를 공부한다면 컴공, 통계, 수학을 떠올리나 계량경제가 applied science로서 어쩌면 더 좋은 궁합이 아닐까 싶다. 
 
 많은 통계 모델이 uncorrelated error 전제로 하지만
-endogenity는 error와 독립변수 X가 독립이 아닌 경우를 말하며 
+endogeneity는 error와 독립변수 X가 독립이 아닌 경우를 말하며 
 ML에서 본 용어는 아니지만 계량경제에서는 많이 보이는 문제다.
 회귀분석의 경우 $$\epsilon \sim \mathcal{N}(0, \sigma)$$ 이나 
 $$\epsilon \sim \mathcal{N}(X, \sigma)$$ 처럼 X값이 증가하면 residual가 증가한 경우를 예시로 생각할 수 있다.
@@ -22,7 +22,7 @@ $$\epsilon \sim \mathcal{N}(X, \sigma)$$ 처럼 X값이 증가하면 residual가
 
 $$ 
 \begin{cases}
- endogenity: E(e_i | x_i) = 0  \\
+ endogeneity: E(e_i | x_i) = 0  \\
  heteroscedasticity: V(e_i | x_i) = \sigma
  \end{cases}
 $$
