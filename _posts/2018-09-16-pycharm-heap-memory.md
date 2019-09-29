@@ -34,8 +34,32 @@ Edit custom VM options
     |
 -Xmx750m  ->  -Xmx2048m (2GB)
     |
-restart
+pycharm restart
 ```
 
 >이 글로 유입되신 분이 많아 `2019-09-07` 업데이트 했습니다. 
 >다른 곳에서도 많이 보이는 정보글이지만 찾아오신 분께 도움이 되도록 내용 추가합니다.
+
+> `2019-09-29` 추가로 데이터 엔지니어가 추천한 설정 공유합니다. 
+```
+-Xms2048m
+-Xmx4096m
+-XX:ReservedCodeCacheSize=240m
+-XX:+UseCompressedOops
+-Dfile.encoding=UTF-8
+-XX:+UseG1GC
+-XX:SoftRefLRUPolicyMSPerMB=50
+-ea
+-XX:CICompilerCount=2
+-Dsun.io.useCanonPrefixCache=false
+-Djava.net.preferIPv4Stack=true
+-Djdk.http.auth.tunneling.disabledSchemes=""
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:-OmitStackTraceInFastThrow
+-Djdk.attach.allowAttachSelf
+-Dkotlinx.coroutines.debug=off
+-Xverify:none
+ 
+-XX:ErrorFile=$USER_HOME/java_error_in_pycharm_%p.log
+-XX:HeapDumpPath=$USER_HOME/java_error_in_pycharm.hprof
+```
