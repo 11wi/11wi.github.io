@@ -17,7 +17,7 @@ category: data-science
 너무 쉬운 2, 4, 5는 생략하고 1번은 피처가 1개인 단순회귀에서 특징으로 $R^2$가 $correlation(x, y)^2$ 라는 점을 이용한다. 
 3번은 f분포의 특성인 분산의 비율을 구하라는 것이다. 자세히는 몰라 설명은 어렵다. (다음엔 이걸로 공부해서 올리는 걸로) 정답은 제곱평균의 비율로 (2)/1.128.
 
-6, 9번은 t 통계량으로 $\frac{coef - 0}{s.e.}$ (왜 t 통계량을 쓰는 지는 [링크참조](https://stats.stackexchange.com/a/117422))
+6, 9번은 t 통계량으로 $\frac{coef - 0}{s.e.}=\frac{2.850-0}{0.103}$ (왜 t 통계량을 쓰는 지는 [링크참조](https://stats.stackexchange.com/a/117422))
 
 대망의 7번은 숨은 그림 찾기하듯 풀어야된다. $\beta = \frac {\sum (x-\bar{x}) (y-\bar{y})} {\sum (x-\bar{x})^2}$ 이기 때문에
 핵심은 $\sum (x-\bar{x}) (y-\bar{y})$ 와 $\sum (x-\bar{x})^2$ 를 어디서 찾을 것이냐다.
