@@ -22,7 +22,7 @@ AB test 예시를 보면 다 2개의 봉우리를 그린다. 각각 A, B의 분�
 
 ---
 
-<br>![](attachments/confusion-matrix.png)<br>
+<br>![](/attachments/confusion-matrix.png)<br>
 
 confusion matrix로 보면 암이 있다 1, 없다 0일 때 type 1은 $H_{0}$인데 $H_{1}$이라고 한거니까 암이 없는데 있다고 한 것.(false positive)  
 type 2는 $H_{1}$인데 $H_{0}$이라고 한거니까 암이 있는데 없다고 한 것.(false negative)
