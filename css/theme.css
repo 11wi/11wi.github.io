@@ -47,7 +47,27 @@ img {
 
 .well h1 {
     color: #ee4444;
+    font-size: 1.6em;
+}
+
+.well h2 {
+    color: #ee4444;
+    font-size: 1.5em;
+}
+
+.well h3 {
+    color: #5c5c5c;
+    font-size: 1.4em;
+}
+
+.well h4 {
+    color: #5c5c5c;
     font-size: 1.3em;
+}
+
+.well h5 {
+    color: #5c5c5c;
+    font-size: 1.2em;
 }
 
 .author {
