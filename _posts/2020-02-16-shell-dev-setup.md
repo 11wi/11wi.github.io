@@ -37,4 +37,5 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ### iterm preference
 
-`General - Preferences - Browse` 경로에서 config load. git에 올린 파일 써도 좋고. `attachments/iterm/com.googlecode.iterm2.plist`
+`General - Preferences - Browse` 경로에서 [config](https://raw.githubusercontent.com/11wi/11wi.github.io/master/attachments/iterm/com.googlecode.iterm2.plist) load.
+![](/attachments/iterm.png)
