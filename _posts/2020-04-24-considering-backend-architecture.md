@@ -7,8 +7,7 @@ search service application architecture를 very seriously하게 study 하다보�
 
 ---
 
-요구사항은 1. cloud 환경일 것이다..? 2. kubernetes 환경 3. dynamic하게 code 수정 가능 
-4. 아직은 검색만 하지만 향후 추천 서비스도 가능하도록 확장성 있게 (?) 5. dynamic하게 api 생성/삭제/수정 (?)
+요구사항은 1. cloud 환경일 것이다..? 2. kubernetes 환경 3. dynamic하게 code 수정 가능 4. 아직은 검색만 하지만 향후 추천 서비스도 가능하도록 확장성 있게 (?) 5. dynamic하게 api 생성/삭제/수정 (?)
 
 앞으로 elasticsearch 기반 추천 시스템을 상상하면서 검색과 추천 서비스를 한 묶음으로 갈 예정인가보다.
 
