@@ -32,7 +32,7 @@ search service application architecture를 very seriously하게 study 하다보�
 나중엔 [fasthttp](https://github.com/valyala/fasthttp)와 [fiber](https://github.com/gofiber/fiber)를 썼다.
 설계도에 api 게이트웨이를 추가한다.
 latency를 의식하고 네트워크를 고려하기 시작한다.
-code를 어떻게 분리해야하는지 고민한다.
+서비스 code를 어떻게 분리해야하는지 고민한다.
 점점 답이 없다는 인상을 받는다....
 
 ---
