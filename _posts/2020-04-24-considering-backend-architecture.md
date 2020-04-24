@@ -31,7 +31,9 @@ search service application architecture를 very seriously하게 study 하다보�
 이제 api스럽게 web framework를 입힌다. 처음에 [go-gin](https://github.com/gin-gonic/gin)을, 
 나중엔 [fasthttp](https://github.com/valyala/fasthttp)와 [fiber](https://github.com/gofiber/fiber)를 썼다.
 설계도에 api 게이트웨이를 추가한다.
-점점 latency를 생각하고 네트워크를 고려한다... 점점 답이 없다는 인상을 받는다.
+latency를 의식하고 네트워크를 고려하기 시작한다.
+code를 어떻게 분리해야하는지 고민한다.
+점점 답이 없다는 인상을 받는다....
 
 ---
 
