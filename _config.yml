@@ -52,8 +52,8 @@ kramdown:
 mathjax: true
 
 
-gems: ['jekyll-paginate']
-plugins: [jekyll-paginate]
+gems: ['jekyll-paginate', 'jekyll-admin']
+plugins: [jekyll-paginate, jekyll-admin]
 exclude: ['README.md', 'LICENSE']
 
 category_dir: category/
