@@ -92,8 +92,3 @@ prose:
               value: "daily-life"
             - name: "data-science"
               value: "data-science"
-      - name: "title"
-        field:
-          element: "text"
-          label: "Post title"
-          placeholder: "Title"
