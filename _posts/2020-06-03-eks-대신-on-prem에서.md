@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 category: dev
 ---
 원래 블로그의 취지는 기술적인 노하우를 정리하는 것이었으나 요즘은 하소연이 하고 싶은지 의식의 흐름대로 쓰게 되는구나.
