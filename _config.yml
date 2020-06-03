@@ -64,3 +64,36 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+# https://github.com/prose/prose/wiki/Prose-Configuration
+prose:
+  rooturl: '_posts'
+  siteurl: 'https://11wi.github.io/'
+  ignore:
+    - index.md
+    - _config.yml
+    - /_layouts
+    - /_includes
+    - /category
+    - /font
+    - /js
+    - /css    
+  metadata:
+    _posts:
+      - name: "category"
+        field:
+          element: "select"
+          label: "Choose Category"
+          placeholder: "Choose Category"
+          options:
+            - name: "dev"
+              value: "dev"
+            - name: "daily-life"
+              value: "daily-life"
+            - name: "data-science"
+              value: "data-science"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Post title"
+          placeholder: "Title"
