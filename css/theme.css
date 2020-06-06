@@ -73,6 +73,13 @@ img {
     font-size: 1.2em;
 }
 
+.well blockquote {
+  margin: 0;
+  padding-left: 1.4rem;
+  position: relative;
+  font-size: 1em;
+}
+
 .author {
     color: #ee4444;
 }
