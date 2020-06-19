@@ -26,7 +26,7 @@ with istio ingressgateway, can access https://dashboard.com and http://dashboard
 
 #### what todo
 
-1. set custom certs in your dashboard deployment not occuring browser error with your domain https://github.com/kubernetes/dashboard/blob/v2.0.1/docs/user/certificate-management.md
+1. set custom certs in your dashboard deployment not occuring browser error with your domain [ref](https://github.com/kubernetes/dashboard/blob/v2.0.1/docs/user/certificate-management.md)
 2. istio gateway with `httpsRedirect: true` and `mode: PASSTHROUGH` [ref](https://istio.io/latest/docs/reference/config/networking/gateway/)
 
 ```yaml
@@ -69,10 +69,10 @@ spec:
   hosts:
   - dashboard.com
   http:
-  - name: "foo"
+  - name: foo
     match:
     - uri:
-        prefix: "/"
+        prefix: /
     route:
     - destination:
         host: <dashboard>
