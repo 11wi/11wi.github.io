@@ -29,61 +29,60 @@ with istio ingressgateway, can access https://dashboard.com and http://dashboard
 1. set custom certs in your dashboard deployment not occuring browser error with your domain [ref](https://github.com/kubernetes/dashboard/blob/v2.0.1/docs/user/certificate-management.md)
 2. istio gateway with `httpsRedirect: true` and `mode: PASSTHROUGH` [ref](https://istio.io/latest/docs/reference/config/networking/gateway/)
 
-```yaml
-apiVersion: networking.istio.io/v1alpha3
-kind: Gateway
-metadata:
-  name: my-gateway
-  namespace: some-config-namespace
-spec:
-  selector:
-    app: my-gateway-controller
-  servers:
-  - port:
-      number: 80
-      name: http
-      protocol: HTTP
-    hosts:
-    - dashboard.com
-    tls:
-      httpsRedirect: true # sends 301 redirect for http requests
-  - port:
-      number: 443
-      name: https
-      protocol: HTTPS
-    hosts:
-    - dashboard.com
-    tls:
-      mode: PASSTHROUGH
-```
+  ```yaml
+  apiVersion: networking.istio.io/v1alpha3
+  kind: Gateway
+  metadata:
+    name: my-gateway
+    namespace: some-config-namespace
+  spec:
+    selector:
+      app: my-gateway-controller
+    servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+      - dashboard.com
+      tls:
+        httpsRedirect: true # sends 301 redirect for http requests
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      hosts:
+      - dashboard.com
+      tls:
+        mode: PASSTHROUGH
+  ```
 
 3. istio virtualservice with `http` and `tls`
 
+  ```yaml
+  apiVersion: networking.istio.io/v1alpha3
+  kind: VirtualService
+  metadata:
+    name: some-route
+  spec:
+    hosts:
+    - dashboard.com
+    http:
+    - name: foo
+      match:
+      - uri:
+          prefix: /
+      route:
+      - destination:
+          host: <dashboard>
+    tls:
+    - match:
+        sniHosts:
+        - dashboard.com
+      route:
+      - destination:
+          host: <dashboard>
+  ```
 
-```yaml
-apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: some-route
-spec:
-  hosts:
-  - dashboard.com
-  http:
-  - name: foo
-    match:
-    - uri:
-        prefix: /
-    route:
-    - destination:
-        host: <dashboard>
-  tls:
-  - match:
-      sniHosts:
-      - dashboard.com
-    route:
-    - destination:
-        host: <dashboard>
-```
 
-
-it works perfect for me. test it using `curl -k -v`. you can see status code 200 for https, 301 for http.
+test it using `curl -k -v`. you can see status code 200 for https, 301 for http.
