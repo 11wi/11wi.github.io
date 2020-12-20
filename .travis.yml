@@ -1,3 +1,4 @@
+source 'https://rubygems.org'
 language: ruby
 cache: bundler
 before_install:
