@@ -1,7 +1,8 @@
 language: ruby
 cache: gem
+before_install:
+  - gem install jekyll-algolia
 script:
-  - gem install jekyll jekyll-paginate jekyll-algolia
   - jekyll algolia
 branches:
   only:
