@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 category: dev
 ---
 "jekyll algolia 사용법"을 검색해보면 minima theme에 `_config.yaml`을 수정하는 방법만 나와서
