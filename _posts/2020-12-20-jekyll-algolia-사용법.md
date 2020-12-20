@@ -18,4 +18,4 @@ github blog 사용자는 이 커맨드를 ci 과정에서 (travis CI) 실행한�
 
 ### API call
 
-[여기](https://community.algolia.com/jekyll-algolia/blog.html) 설명이 있는데 쉽게 말하면 `_includes/algolia.html` 파일에 호출 코드를 심어 놓고 검색이 들어갈 div 태그의 id 값으로 호출 코드를 불러온다. `<div id="search-searchbar"></div>`와 ` <div id="search-hits">`가 그 값이다. 여기서도 `_config.yaml`를 통해 algolia endpoint를 찾는다.
+[여기](https://community.algolia.com/jekyll-algolia/blog.html) 설명이 있는데 쉽게 말하면 `_includes/algolia.html` 파일에 호출 코드를 심어 놓고 검색이 들어갈 div 태그의 id 값으로 호출 코드를 불러온다. `<div id="search-searchbar"></div>`와 `<div id="search-hits">`가 그 값이다. 여기서도 `_config.yaml`를 통해 algolia endpoint를 찾는다.
