@@ -92,3 +92,6 @@ prose:
               value: "daily-life"
             - name: "data-science"
               value: "data-science"
+
+algolia:
+  application_id: 'GHQK94H7TB'
