@@ -53,7 +53,7 @@ mathjax: true
 
 
 gems: ['jekyll-paginate', 'jekyll-algolia']
-plugins: [jekyll-paginate, jekyll-algolia]
+
 exclude: ['README.md', 'LICENSE']
 
 category_dir: category/
