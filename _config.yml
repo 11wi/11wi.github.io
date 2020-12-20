@@ -95,3 +95,4 @@ prose:
 
 algolia:
   application_id: 'GHQK94H7TB'
+  index_name: 'posts'
