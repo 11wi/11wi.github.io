@@ -1,5 +1,3 @@
-# .travis.yml
-# This file should be at the root of your project
 language: ruby
 cache: bundler
 before_install:
@@ -8,8 +6,6 @@ script:
   - bundle exec jekyll algolia
 branches:
   only:
-    # Change this to gh-pages if you're deploying using the gh-pages branch
     - master
 rvm:
  - 2.4
- exclude: [vendor]
