@@ -53,6 +53,7 @@ mathjax: true
 
 
 gems: ['jekyll-paginate', 'jekyll-algolia']
+plugins: [jekyll-paginate]
 
 exclude: ['README.md', 'LICENSE']
 
@@ -96,3 +97,4 @@ prose:
 algolia:
   application_id: 'GHQK94H7TB'
   index_name: 'posts'
+  search_only_api_key: 334497bd1f0756cb422bb0001d0dd08d
