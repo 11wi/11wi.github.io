@@ -6,7 +6,7 @@ category: dev
 
 ---
 
-server가 어떻게 request response를 처리하는지 간략하게 핵심만 소개한 영상이 있다. [reference](https://www.youtube.com/watch?v=5eQJ-0y8TzE&t=1262s)
+server가 어떻게 request response를 처리하는지 간략하게 핵심만 소개한 영상이 있다. [reference](https://www.youtube.com/watch?v=5eQJ-0y8TzE)
 go 코드로 보여주니 더욱 명확한 것 같다.
 
 ```go
