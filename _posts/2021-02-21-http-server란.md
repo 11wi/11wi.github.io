@@ -1,8 +1,8 @@
 ---
-published: false
+published: true
 category: dev
 ---
-신입사원 교육하면서 나도 web application이 무엇인지 배운 게 많다. 그 내용을 정리해본다.
+신입사원 교육을 하기 위해 web server를 공부했다. 너무너무 어려워서 그냥 import해서 써야하는 개념은 아니란 걸 나도 이제서야 알았다. 나처럼 오해하는 사람을 위해 쉽게 정리했다.
 
 ---
 
