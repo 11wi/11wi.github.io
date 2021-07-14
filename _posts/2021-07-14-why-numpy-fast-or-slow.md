@@ -245,14 +245,13 @@ Pc, Qc = np.asarray(p, dtype=np.float32, order='C'), np.asarray(q, dtype=np.floa
 
 ## materials
 
-https://developer.ibm.com/blogs/use-python-for-scientific-research/
-https://developer.ibm.com/languages/python/articles/ba-accelerate-python/
-https://users.ece.cmu.edu/~franzf/papers/gttse07.pdf
+<https://developer.ibm.com/blogs/use-python-for-scientific-research/>
+<https://developer.ibm.com/languages/python/articles/ba-accelerate-python/>
+<https://users.ece.cmu.edu/~franzf/papers/gttse07.pdf>
 
 ## cython
 
-https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html
-https://github.com/pydata/bottleneck/issues/92
-https://github.com/benfred/implicit/blob/master/implicit/nearest_neighbours.h
-https://numpy.org/doc/1.17/reference/c-api.html
-
+<https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html>
+<https://github.com/pydata/bottleneck/issues/92>
+<https://github.com/benfred/implicit/blob/master/implicit/nearest_neighbours.h>
+<https://numpy.org/doc/1.17/reference/c-api.html>
