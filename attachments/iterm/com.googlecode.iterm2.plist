@@ -1798,7 +1798,7 @@
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>S</string>
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Silence Bell</key>
@@ -1915,7 +1915,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Title Components</key>
-			<integer>38</integer>
+			<integer>34</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
@@ -2790,7 +2790,7 @@
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>P</string>
 			<key>Show Status Bar</key>
 			<true/>
 			<key>Silence Bell</key>
@@ -2907,7 +2907,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Title Components</key>
-			<integer>38</integer>
+			<integer>34</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
@@ -3277,6 +3277,8 @@
 			<integer>1</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Use Transparency</key>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -3897,7 +3899,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Title Components</key>
-			<integer>6</integer>
+			<integer>3</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
@@ -3917,7 +3919,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Working Directory</key>
 			<string>/Users/elon</string>
 		</dict>
@@ -3970,6 +3972,8 @@
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>SeparateStatusBarsPerPane</key>
+	<true/>
+	<key>ShowFullScreenTabBar</key>
 	<true/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
